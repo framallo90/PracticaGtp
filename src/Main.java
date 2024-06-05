@@ -24,7 +24,8 @@ public class Main {
                     break;
 
                 case 3:
-                    Persona persona = crearPersona();
+                    Persona persona = ejercicio3();
+                    persona.toString();
                     break;
 
                 case 4:
@@ -45,7 +46,7 @@ public class Main {
 
     }
 
-    public static Persona crearPersona(){
+    public static Persona ejercicio3(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese nomrbe:");
         String nombre = scanner.nextLine();
@@ -56,66 +57,45 @@ public class Main {
     }
     public static void ejercicio1(){
         Scanner scanner = new Scanner(System.in);
-        int opt;
-        do{
-            System.out.println("1. Lunes");
-            System.out.println("2. Martes");
-            System.out.println("3. Miercoles");
-            System.out.println("4. Jueves");
-            System.out.println("5. Viernes");
-            System.out.println("6. Sabado");
-            System.out.println("7. Domingo");
-            System.out.println("Elija una dia");
-            opt = scanner.nextInt();
-            switch (opt){
-                case 1:
-                    System.out.println("Lunes");
-                    break;
+        System.out.println("Introduce un número del 1 al 7 para el día de la semana:");
+        int dia = scanner.nextInt();
 
-                case 2:
-                    System.out.println("Martes");
-                    break;
+        switch (dia) {
+            case 1:
+                System.out.println("Lunes");
+                break;
+            case 2:
+                System.out.println("Martes");
+                break;
+            case 3:
+                System.out.println("Miércoles");
+                break;
+            case 4:
+                System.out.println("Jueves");
+                break;
+            case 5:
+                System.out.println("Viernes");
+                break;
+            case 6:
+                System.out.println("Sábado");
+                break;
+            case 7:
+                System.out.println("Domingo");
+                break;
+            default:
+                System.out.println("Número inválido. Introduce un número del 1 al 7.");
+        }
 
-                case 3:
-                    System.out.println("Miercoles");
-                    break;
-
-                case 4:
-                    System.out.println("Jueves");
-                    break;
-
-                case 5:
-                    System.out.println("Viernes");
-                    break;
-
-                case 6:
-                    System.out.println("Sabado");
-                    break;
-
-                case 7:
-                    System.out.println("Domingo");
-                    break;
-
-                case 8:
-                    System.out.println("Saliendo...");
-                    break;
-
-                default:
-                    System.out.println("Opcion inbvalida, vuelva a intentarlo");
-                    break;
-
-            }
-
-        }while (opt!=8);
+        scanner.close();
     }
     public static int calcularFactorial(int n) {
-        if (n == 0) {
-            return 1;
-        }
         int factorial = 1;
         for (int i = 1; i <= n; i++) {
-            factorial = factorial * i;
+            factorial *= i;
         }
         return factorial;
     }
+
+
+
 }
