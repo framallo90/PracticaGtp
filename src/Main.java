@@ -2,38 +2,120 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int opt;
+        do{
+            System.out.println("1. Ejercicio 1");
+            System.out.println("2. Ejercicio 2");
+            System.out.println("3. Ejercicio 3");
+            System.out.println("4. Salir.");
+            System.out.println("ingrese opcion");
+            opt = scanner.nextInt();
+            switch (opt){
+                case 1:
+                    ejercicio1();
+                    break;
 
-        //Ejercicio 1
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduce un número:");
-        int numero = scanner.nextInt();
-        if (numero % 2 == 0) {
-            System.out.println("El número es par.");
-        } else {
-            System.out.println("El número es impar.");
-        }
+                case 2:
+                    System.out.print("Por favor ingresa un número para calcular su factorial: ");
+                    int n = scanner.nextInt();
+                    int factorial = calcularFactorial(n);
+                    System.out.println("El factorial de " + n + " es: " + factorial);
+                    break;
 
-        //Ejercicio 2
-        System.out.print("Por favor ingresa un número para imprimir la serie de Fibonacci hasta ese número: ");
-        int limite = scanner.nextInt();
-        System.out.println("La serie de Fibonacci hasta " + limite + " es:");
-        for (int i = 0; i < limite; i++) {
-            System.out.print(calcularFibonacci(i) + " ");
-        }
-        System.out.println(); // Salto de línea
+                case 3:
+                    Persona persona = crearPersona();
+                    break;
 
-        scanner.close();
+                case 4:
+                    System.out.println("Saliendo");
+                    break;
+
+                default:
+                    System.out.println("opcion invalida, vuelva a intentarlo.");
+                    break;
+            }
+        }while (opt != 4);
+
+
+
+
+
+
+
     }
-    public static int calcularFibonacci(int n) {
-        if (n <= 1) {
-            return n;
+
+    public static Persona crearPersona(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese nomrbe:");
+        String nombre = scanner.nextLine();
+        System.out.println("Ingrese edad");
+        int edad = scanner.nextInt();
+
+        return new Persona(nombre, edad);
+    }
+    public static void ejercicio1(){
+        Scanner scanner = new Scanner(System.in);
+        int opt;
+        do{
+            System.out.println("1. Lunes");
+            System.out.println("2. Martes");
+            System.out.println("3. Miercoles");
+            System.out.println("4. Jueves");
+            System.out.println("5. Viernes");
+            System.out.println("6. Sabado");
+            System.out.println("7. Domingo");
+            System.out.println("Elija una dia");
+            opt = scanner.nextInt();
+            switch (opt){
+                case 1:
+                    System.out.println("Lunes");
+                    break;
+
+                case 2:
+                    System.out.println("Martes");
+                    break;
+
+                case 3:
+                    System.out.println("Miercoles");
+                    break;
+
+                case 4:
+                    System.out.println("Jueves");
+                    break;
+
+                case 5:
+                    System.out.println("Viernes");
+                    break;
+
+                case 6:
+                    System.out.println("Sabado");
+                    break;
+
+                case 7:
+                    System.out.println("Domingo");
+                    break;
+
+                case 8:
+                    System.out.println("Saliendo...");
+                    break;
+
+                default:
+                    System.out.println("Opcion inbvalida, vuelva a intentarlo");
+                    break;
+
+            }
+
+        }while (opt!=8);
+    }
+    public static int calcularFactorial(int n) {
+        if (n == 0) {
+            return 1;
         }
-        int fib1 = 0, fib2 = 1, fibonacci = 1;
-        for (int i = 2; i <= n; i++) {
-            fibonacci = fib1 + fib2;
-            fib1 = fib2;
-            fib2 = fibonacci;
+        int factorial = 1;
+        for (int i = 1; i <= n; i++) {
+            factorial = factorial * i;
         }
-        return fibonacci;
+        return factorial;
     }
 }
